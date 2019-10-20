@@ -1,33 +1,20 @@
 {
-  "name": "fatboar",
+  "name": "jenkins-node",
   "version": "1.0.0",
-  "description": "Game for the restaurant fatboar",
-  "author": {
-    "name": "Carlos Olmedo"
-  },
-  "license": "MIT",
+  "description": "Testing image node with jenkins",
+  "main": "index.js",
   "scripts": {
-    "client": "cd client && yarn start",
-    "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "dev:server": "cd client && yarn build && cd .. && yarn start",
-    "start": "node server.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
-  },
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "concurrently": "^4.1.0"
+    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://carlossit@bitbucket.org/furiousduck/fatboard.git"
+    "url": "git+https://github.com/karlosit/jenkins.git"
   },
-  "keywords": [
-    "node",
-    "express",
-    "create-react-app"
-  ]
+  "author": "Carlos Olmedo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karlosit/jenkins/issues"
+  },
+  "homepage": "https://github.com/karlosit/jenkins#readme"
 }
