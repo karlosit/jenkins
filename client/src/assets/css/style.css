@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "moriss";
+    src: url("../fonts/morris_roman/MorrisRomanBlack.otf");
+    src: url("../fonts/morris_roman/MorrisRomanBlackAlt.otf"),
+         url("../fonts/morris_roman/MorrisRomanBlackAlt.ttf") format("truetype"),
+         url("../fonts/morris_roman/MorrisRomanBlack.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+  body {
+    font-family: 'Open Sans Bold';
+  }
