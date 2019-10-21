@@ -19,7 +19,7 @@ pipeline {
                 branch 'develop' 
             }
             steps {
-                echo 'Message from develop'
+                echo 'Message from develop now'
             }
         }
         stage('Deploy for production') {
