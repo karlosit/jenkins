@@ -53,7 +53,7 @@ pipeline {
         // }
         success {
             echo 'I succeeeded!'
-            sh 'docker-compose down'
+            //sh 'docker-compose down'
             deleteDir()
         }
         // unstable {
@@ -62,7 +62,7 @@ pipeline {
         failure {
             echo 'I failed :('
             echo 'after build'
-            sh 'docker-compose down'
+            //sh 'docker-compose down'
             deleteDir()
             //mail to: 'carlos.olmedodev@gmail.com',
             //    subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
@@ -70,7 +70,7 @@ pipeline {
         }
         changed {
             echo 'Things were different before...'
-            sh 'docker-compose down'
+            //sh 'docker-compose down'
             deleteDir()
         }
     }
