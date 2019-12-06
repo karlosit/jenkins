@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile
     image: colmedo/reactapp
     volumes:
-      - node_modules:/app
+      - "/usr/src/app/node_modules"
     environment:
       - NODE_ENV=development
     labels:
