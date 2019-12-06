@@ -8,8 +8,10 @@ services:
       context: .
       dockerfile: Dockerfile
     image: colmedo/reactapp
-    ports: 
-      - 3000:3000
+#    ports: 
+#      - 3000:3000
+    networks: 
+      - web    
     volumes:
       - "/usr/src/app/node_modules"
     environment:
