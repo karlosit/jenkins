@@ -1,5 +1,6 @@
 FROM node:alpine3.10
 
+USER root
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get -y install autoconf automake libtool nasm make pkg-config git apt-utils
@@ -19,6 +20,5 @@ EXPOSE 3000
 # Environment variables
 ENV NODE_ENV production
 ENV PORT 3000
-ENV PUBLIC_PATH "/"
 
 CMD ["yarn", "start"]
