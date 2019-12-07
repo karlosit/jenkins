@@ -7,6 +7,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                deleteDir()
                 sh 'docker system prune -a -f'
                 sh 'docker-compose down -v'
                 sh 'docker-compose up -d --build'
@@ -17,7 +18,7 @@ pipeline {
                 echo "test ${BUILD_NUMBER}"
                 sh 'docker build -t demo-test -f docker/Dockerfile.test --no-cache .'
                 sh 'docker run --rm demo-test'
-                sh 'docker rmi demo-test'
+                //sh 'docker rmi demo-test'
             }
         }
         stage('Deploy for production') {
@@ -46,6 +47,7 @@ pipeline {
             //archiveArtifacts artifacts: "test1.${BUILD_NUMBER}.txt"
             junit 'report.xml'
             echo 'artifact saved'
+            sh 'docker rmi demo-test'
         }
         success {
             echo 'I succeeeded!'

@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject", 
-    "testmocha": "NODE_ENV=test export JUNIT_REPORT_PATH=./report.xml mocha --reporter mocha-jenkins-reporter"
+    "testmocha": "NODE_ENV=test JUNIT_REPORT_PATH=./report.xml mocha --colors --reporter mocha-jenkins-reporter"
   },
   "eslintConfig": {
     "extends": "react-app"
