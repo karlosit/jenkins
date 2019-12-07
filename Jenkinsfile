@@ -44,14 +44,8 @@ pipeline {
     post {
          always {
             archiveArtifacts artifacts: "build/test1.${BUILD_NUMBER}.txt"
-            junit 'build/reports/**/*.xml'
+            //junit 'build/reports/**/*.xml'
             echo 'artifact saved'
-        //     //archiveArtifacts artifacts: 'build/testfatboar.txt', fingerprint: true
-        //     //deleteDir()
-        //     echo 'after build'
-        //     sh 'docker-compose down'
-        //     deleteDir()
-        //     //junit 'build/reports/**/*.xml'
         }
         success {
             echo 'I succeeeded!'
