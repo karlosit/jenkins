@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
             image 'node:7-alpine'
-            label 'docker'
             args '-p 3000:3000 -p 5000:5000'
         }
     }
@@ -12,7 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'yarn start'
+                sh 'node --version'
             }
         }
         stage('Deliver for development') {
