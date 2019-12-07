@@ -17,6 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "test ${env.NODE_ENV}"
+                sh 'yarn testmocha'
             }
         }
         stage('Deploy for production') {
@@ -34,13 +35,6 @@ pipeline {
             }
             steps {
                 echo 'Build from develop'
-                //sh './jenkins/scripts/deliver-for-development.sh'
-                //input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                //sh './jenkins/scripts/kill.sh'
-                //sh 'docker container stop mongo_fatboar'
-                //sh 'docker container rm mongo_fatboar'
-                //sh 'mkdir build'
-                //sh 'echo "Test finished" > build/testfatboar.txt'
             }
         }
     }
@@ -56,7 +50,6 @@ pipeline {
         // }
         success {
             echo 'I succeeeded!'
-            //sh 'docker-compose down'
             deleteDir()
         }
         // unstable {
