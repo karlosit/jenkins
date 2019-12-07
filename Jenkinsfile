@@ -38,12 +38,12 @@ pipeline {
             steps {
                 echo 'Build from develop'
             }
-        }
+        }   
     }
 
     post {
          always {
-            archiveArtifacts artifacts: "build/test1.${BUILD_NUMBER}.txt"
+            archiveArtifacts artifacts: "test1.${BUILD_NUMBER}.txt"
             //junit 'build/reports/**/*.xml'
             echo 'artifact saved'
         }
