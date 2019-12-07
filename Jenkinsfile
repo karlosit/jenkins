@@ -7,6 +7,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                deleteDir()
                 sh 'docker system prune -a -f'
                 sh 'docker-compose down -v'
                 sh 'docker-compose up -d --build'
@@ -14,7 +15,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo "test ${env.NODE_ENV}"
+                echo "test ${BUILD_NUMBER}"
                 sh 'docker build -t demo-test -f docker/Dockerfile.test --no-cache .'
                 sh 'docker run --rm demo-test'
                 sh 'docker rmi demo-test'
@@ -49,7 +50,7 @@ pipeline {
         }
         success {
             echo 'I succeeeded!'
-            deleteDir()
+            //deleteDir()
         }
         // unstable {
         //     echo 'I am unstable :/'
@@ -58,7 +59,7 @@ pipeline {
             echo 'I failed :('
             echo 'after build'
             sh 'docker-compose down'
-            deleteDir()
+            //deleteDir()
             //mail to: 'carlos.olmedodev@gmail.com',
             //    subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
             //    body: "Something is wrong with ${env.BUILD_URL}"
@@ -66,7 +67,7 @@ pipeline {
         changed {
             echo 'Things were different before...'
             //sh 'docker-compose down'
-            deleteDir()
+            //deleteDir()
         }
     }
 }
