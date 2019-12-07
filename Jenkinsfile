@@ -43,8 +43,8 @@ pipeline {
 
     post {
          always {
-            archiveArtifacts artifacts: "test1.${BUILD_NUMBER}.txt"
-            //junit 'build/reports/**/*.xml'
+            //archiveArtifacts artifacts: "test1.${BUILD_NUMBER}.txt"
+            junit 'report.xml'
             echo 'artifact saved'
         }
         success {
