@@ -7,7 +7,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                deleteDir()
                 sh 'docker system prune -a -f'
                 sh 'docker-compose down -v'
                 sh 'docker-compose up -d --build'
@@ -48,6 +47,7 @@ pipeline {
             junit 'report.xml'
             echo 'artifact saved'
             sh 'docker rmi demo-test'
+            deleteDir()
         }
         success {
             echo 'I succeeeded!'
