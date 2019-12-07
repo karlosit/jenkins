@@ -10,6 +10,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
+      //.get("https://api.carlosdev.fr/users") 
       .get("https://jsonplaceholder.typicode.com/users")
       .then(resp => {
         this.setState({
