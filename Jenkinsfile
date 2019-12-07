@@ -9,8 +9,6 @@ pipeline {
             steps {
                 sh 'docker system prune -a -f'
                 sh 'docker-compose down -v'
-                //sh 'docker container stop demo-react'
-                sh 'docker container rm demo-react'
                 sh 'docker-compose up -d --build'
             }
         }
@@ -27,6 +25,8 @@ pipeline {
             steps {
                 echo 'From master'
                 input message: 'Finished using the web site?'
+                sh 'docker container stop demo-react'
+                sh 'docker container rm demo-react'
             }
         }
         stage('Deliver for development') {
