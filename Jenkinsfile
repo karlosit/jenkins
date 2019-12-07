@@ -15,7 +15,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo "test ${env.NODE_ENV}"
-                sh 'yarn testmocha'
+                sh 'docker build -t demo-test -f docker/Dockerfile.test --no-cache .'
+                sh 'docker run --rm demo-test'
+                sh 'docker rmi demo-test'
             }
         }
         stage('Deploy for production') {
@@ -58,7 +60,7 @@ pipeline {
         failure {
             echo 'I failed :('
             echo 'after build'
-            //sh 'docker-compose down'
+            sh 'docker-compose down'
             deleteDir()
             //mail to: 'carlos.olmedodev@gmail.com',
             //    subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",

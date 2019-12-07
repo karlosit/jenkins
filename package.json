@@ -12,11 +12,11 @@
   },
   "scripts": {
     "startnode": "node server.js",
-    "start": "react-scripts start",
+    "start": "NODE_ENV=production react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "testmocha": "mocha"
+    "testmocha": "NODE_ENV=test mocha"
   },
   "eslintConfig": {
     "extends": "react-app"

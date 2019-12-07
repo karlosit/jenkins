@@ -6,7 +6,7 @@ services:
     container_name: demo-react
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
     image: colmedo/reactapp
     networks: 
       - web    
