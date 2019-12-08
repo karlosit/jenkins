@@ -17,6 +17,8 @@ pipeline {
                 echo "test ${BUILD_NUMBER}"
                 sh 'docker build -t demo-test -f docker/Dockerfile.test --no-cache .'
                 sh 'docker run --rm demo-test'
+                sh 'mkdir build'
+                sh 'echo "Test n° ${BUILD_NUMBER} finished" > build/results_test.txt'
                 //sh 'docker rmi demo-test'
             }
         }
@@ -42,8 +44,8 @@ pipeline {
     }
 
     post {
-         always { 
-            archiveArtifacts 'results_test.txt'
+         always {
+            archiveArtifacts artifacts: 'build/results_test.txt', fingerprint: true
             junit 'report.xml'
             echo 'artifact saved'
             sh 'docker rmi demo-test'
