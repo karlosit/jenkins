@@ -19,12 +19,11 @@ pipeline {
                 sh 'docker run --rm demo-test'
                 sh 'mkdir build'
                 sh 'echo "Test # ${BUILD_NUMBER} finished" > build/results_test.txt'
-                sh 'ls -alh'
-                //sh 'docker rmi demo-test'
+                sh 'docker rmi demo-test'
             }
             post {
                 always {
-                    junit 'test-results.xml'
+                    archiveArtifacts artifacts: 'build/results_test.txt', fingerprint: true
                 }
             }
         }
@@ -51,9 +50,8 @@ pipeline {
 
     post {
          always {
-            archiveArtifacts artifacts: 'build/results_test.txt', fingerprint: true
+            junit 'test-results.xml'
             echo 'artifact saved'
-            sh 'docker rmi demo-test'
             //deleteDir()
         }
         success {
