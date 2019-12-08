@@ -43,7 +43,7 @@ pipeline {
 
     post {
          always { 
-            archiveArtifacts artifacts: "test1${BUILD_NUMBER}.txt", fingerprint: true
+            archiveArtifacts "test1${BUILD_NUMBER}.txt"
             junit 'report.xml'
             echo 'artifact saved'
             sh 'docker rmi demo-test'
