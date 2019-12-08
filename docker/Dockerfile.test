@@ -1,6 +1,6 @@
 FROM colmedo/reactapp
 
-COPY . /
+COPY . .
 
 # Environment variables
 ENV NODE_ENV production
