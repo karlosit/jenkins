@@ -6,6 +6,8 @@
     "axios": "^0.19.0",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
+    "mocha": "^6.2.2",
+    "mocha-jenkins-reporter": "^0.4.2",
     "path": "^0.12.7",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -16,8 +18,8 @@
     "start": "NODE_ENV=production react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject", 
-    "testmocha": "NODE_ENV=test JUNIT_REPORT_PATH=./report.xml mocha --colors --reporter mocha-jenkins-reporter"
+    "eject": "react-scripts eject",
+    "testmocha": "JUNIT_REPORT_PATH=./report.xml mocha --colors --reporter mocha-jenkins-reporter"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,8 +36,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "mocha": "^6.2.2",
-    "mocha-jenkins-reporter": "^0.4.2"
-  }
+  "devDependencies": {}
 }

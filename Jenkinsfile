@@ -18,7 +18,7 @@ pipeline {
                 sh 'docker build -t demo-test -f docker/Dockerfile.test --no-cache .'
                 sh 'docker run --rm demo-test'
                 sh 'mkdir build'
-                sh 'echo "Test n° ${BUILD_NUMBER} finished" > build/results_test.txt'
+                sh 'echo "Test # ${BUILD_NUMBER} finished" > build/results_test.txt'
                 //sh 'docker rmi demo-test'
             }
         }
