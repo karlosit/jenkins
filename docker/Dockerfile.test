@@ -1,19 +1,11 @@
-FROM node:alpine3.10
+FROM colmedo/reactapp
 
-RUN mkdir -p /app
-WORKDIR /app
-
-COPY package.json /
-COPY yarn.lock /
-
-RUN yarn install && yarn global add mocha && yarn add mocha-xunit-reporter 
-
-COPY . /
-
-EXPOSE 3000
+COPY test test
 
 # Environment variables
-ENV NODE_ENV test
+ENV NODE_ENV production
+
+RUN yarn install && yarn global add mocha && yarn add mocha-xunit-reporter 
 
 #RUN export JUNIT_REPORT_PATH=./report.xml
 RUN ls -alh
