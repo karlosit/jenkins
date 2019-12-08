@@ -15,4 +15,4 @@ EXPOSE 3000
 # Environment variables
 ENV NODE_ENV test
 
-#CMD ["yarn", "testmocha"]
+CMD ["yarn", "testmocha"]
