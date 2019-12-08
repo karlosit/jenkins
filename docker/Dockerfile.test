@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package.json /
 COPY yarn.lock /
 
-RUN yarn install && yarn global add mocha && yarn add mocha-jenkins-reporter
+RUN yarn install && yarn global add mocha && yarn add mocha-xunit-reporter 
 
 COPY . /
 
@@ -15,6 +15,7 @@ EXPOSE 3000
 # Environment variables
 ENV NODE_ENV test
 
-RUN export JUNIT_REPORT_PATH=./report.xml
+#RUN export JUNIT_REPORT_PATH=./report.xml
+RUN ls -alh
 
-CMD ["yarn", "testmocha"]
+CMD ["yarn", "testxunit"]

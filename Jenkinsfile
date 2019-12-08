@@ -46,10 +46,10 @@ pipeline {
     post {
          always {
             archiveArtifacts artifacts: 'build/results_test.txt', fingerprint: true
-            junit 'report.xml'
+            junit 'test-results.xml'
             echo 'artifact saved'
             sh 'docker rmi demo-test'
-            deleteDir()
+            //deleteDir()
         }
         success {
             echo 'I succeeeded!'
