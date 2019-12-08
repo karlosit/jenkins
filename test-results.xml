@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assemblies>
+  <assembly name="Mocha Tests" time="0" total="4" failed="0" passed="4" skipped="0" run-date="2019-12-08" run-time="15:09:03">
+    <collection name="Root Suite" total="0" failed="0" passed="0" time="0" skipped="0">
+    </collection>
+    <collection name="Addition" total="2" failed="0" passed="2" time="0" skipped="0">
+      <test name="Addition 2 + 2 should be 4" time="0" result="passed">
+      </test>
+      <test name="Addition 1 + 5 should be 6" time="0" result="passed">
+      </test>
+    </collection>
+    <collection name="Type Comparison" total="2" failed="0" passed="2" time="0" skipped="0">
+      <test name="Type Comparison &apos;5&apos; == 5 should be true" time="0" result="passed">
+      </test>
+      <test name="Type Comparison &apos;5&apos; === 5 should be false" time="0" result="passed">
+      </test>
+    </collection>
+  </assembly>
+</assemblies>
