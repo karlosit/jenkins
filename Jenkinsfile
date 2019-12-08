@@ -19,7 +19,13 @@ pipeline {
                 sh 'docker run --rm demo-test'
                 sh 'mkdir build'
                 sh 'echo "Test # ${BUILD_NUMBER} finished" > build/results_test.txt'
+                sh 'ls -alh'
                 //sh 'docker rmi demo-test'
+            }
+            post {
+                always {
+                    junit 'test-results.xml'
+                }
             }
         }
         stage('Deploy for production') {
@@ -46,7 +52,6 @@ pipeline {
     post {
          always {
             archiveArtifacts artifacts: 'build/results_test.txt', fingerprint: true
-            junit 'test-results.xml'
             echo 'artifact saved'
             sh 'docker rmi demo-test'
             //deleteDir()
@@ -62,7 +67,7 @@ pipeline {
             echo 'I failed :('
             echo 'after build'
             sh 'docker-compose down'
-            //deleteDir()
+            deleteDir()
             //mail to: 'carlos.olmedodev@gmail.com',
             //    subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
             //    body: "Something is wrong with ${env.BUILD_URL}"
@@ -70,7 +75,7 @@ pipeline {
         changed {
             echo 'Things were different before...'
             //sh 'docker-compose down'
-            //deleteDir()
+            deleteDir()
         }
     }
 }
