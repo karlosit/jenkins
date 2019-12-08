@@ -50,7 +50,7 @@ pipeline {
 
     post {
          always {
-            junit 'test-results.xml'
+            junit 'report.xml'
             echo 'artifact saved'
             //deleteDir()
         }
